@@ -2,31 +2,14 @@
 
 ![chrome-capture-2024-3-15](https://github.com/Keemluvr/metrix/assets/31359251/6f256e20-6352-45d1-b524-8a1b7e9f1c38)
 
-
-Esta aplicação requer autenticação para ser utilizada. Após o login, os usuários são listados de acordo com suas funções e têm acesso a operações de criação, leitura, atualização e exclusão (CRUD) de usuários, com base em suas permissões.
-
-Para testá-lo, você pode acessar por meio deste link:
-[metrix-neon.vercel.app](metrix-neon.vercel.app)
+Esta aplicação requer autenticação para ser utilizada. Após o login, os usuários são listados e têm acesso a operações de criação, leitura, atualização e exclusão (CRUD) de usuários.
 
 ## 📝 Tabela de conteúdos
 
-- [Usuários disponíveis](#frowning_person-usuários-disponíveis)
 - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
 - [Como executar o projeto](#point_right-como-executar-o-projeto)
 - [Estrutura do Projeto](#mag_right-estrutura-do-projeto)
 - [Ajustes e/ou novas funcionalidades para o sistema](#-ajustes-eou-novas-funcionalidades-para-o-sistema)
-
-## :frowning_person: Usuários disponíveis
-
-### Admin
-
-**email**: admin@admin.com  
-**senha**: admin@admin.com
-
-### User
-
-**email**: user@user.com  
-**senha**: user@user.com
 
 ## ⛏️ Tecnologias Utilizadas
 
@@ -56,30 +39,24 @@ Para testá-lo, você pode acessar por meio deste link:
    npm install
    ```
 
-2. Configure o Husky com o seguinte comando:
-
-   ```sh
-   npm run prepare
-   ```
-
-3. Crie um arquivo com o nome `.env` na raiz do projeto com a seguinte configuração:
+2. Crie um arquivo com o nome `.env` na raiz do projeto com a seguinte configuração:
 
    ```sh
     ENVIRONMENT="local"
     NEXT_PUBLIC_INITIAL_PATH_URL="http://localhost:3000"
-    NEXT_PUBLIC_INITIAL_PATH_URL_API="http://localhost:3000/api"
-    DATABASE_URL="" # Para teste é possível criar um banco no https://supabase.com/ e colar o link da URI aqui
+    NEXT_PUBLIC_INITIAL_PATH_URL_API="http://localhost:8080"
     NEXTAUTH_SECRET="loremipsumdolor"
     NEXTAUTH_URL="http://localhost:3000"
    ```
 
-4. Execute a aplicação:
+3. Execute a aplicação:
+
    ```sh
    npm run dev
    ```
 
-5. Execute os testesÇ
-    ```sh
+4. Execute os testesÇ
+   ```sh
    npm run cypress:open
    ```
 
@@ -92,7 +69,6 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 |-- cypress/
 |-- public/
 |-- src/
-    |-- api/
     |-- app/
     |-- components/
     |-- config/
@@ -121,8 +97,6 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 - Contém os arquivos estáticos da aplicação, como ícones e imagens.
 
 #### `/src`
-
-- **`api`**: Contém os arquivos relacionados a lógica da API e uma pasta helpers para funções auxiliares.
 
 - **`app`**: Contém o componente principal da aplicação, onde fica estruturado as páginas e rotas da API e sua inicialização.
 
@@ -167,8 +141,5 @@ Esta estrutura organiza o código de forma modular e separa claramente as respon
 ## 🔨 Ajustes e/ou novas funcionalidades para o sistema:
 
 - [ ] (Melhoria) Acessibilidade
-- [ ] (Melhoria) Visualização e o armazenamento das imagens
 - [ ] (Ajuste) Deslogar o usuário caso ele exclua a própria conta
-- [ ] (Ajuste) Ao atualizar a role de um usuário ele precisa deslogar e logar novamente para que a sessão atualize os dados
 - [ ] (Ajuste) Responsividade
-- [ ] (Ajuste) PRODUÇÃO - Toasts não estão pegando a tradução correta, mas local funciona
