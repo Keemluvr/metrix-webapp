@@ -1,0 +1,112 @@
+{
+  "SignIn": {
+    "get-started": "Get Started",
+    "welcome-back": "Welcome back!",
+    "login-to-your-account": "Login to your account"
+  },
+  "SignUp": {
+    "get-started": "Get Started",
+    "create-your-free-account": "Create your free account"
+  },
+  "Form": {
+    "user-information": "User Information",
+    "edit-user": "Edit User",
+    "save": "Save",
+    "close": "Close",
+    "full-name": "Full Name",
+    "your-full-name": "Your Full Name",
+    "gender": "Gender",
+    "email": "Email",
+    "email-address": "Email Address",
+    "your-email-address": "Your Email Address",
+    "password": "Password",
+    "new-password": "New Password",
+    "create-a-strong-password": "Create a strong password",
+    "age": "Age",
+    "cpf": "CPF",
+    "rg": "RG",
+    "birthdate": "Birthdate",
+    "contact": "Contact",
+    "phone": "Phone",
+    "cellphone": "Cellphone",
+    "address": "Address",
+    "cep": "CEP",
+    "number": "Number",
+    "neighborhood": "Neighborhood",
+    "street": "Street",
+    "city": "City",
+    "state": "State",
+    "other-informations": "Other Informations",
+    "mother-name": "Mother Name",
+    "father-name": "Father Name",
+    "physical": "Physical",
+    "height": "Height",
+    "weight": "Weight",
+    "blood-type": "Blood Type",
+    "not-set": "Não definido",
+    "recover-password": "Recover password",
+    "already-have-an-account": "Already have an account?",
+    "dont-have-an-account": "Don't have an account?",
+    "sign-up": "Sign up",
+    "field-is-required": "{field} is required",
+    "login": "Login",
+    "update": "Update",
+    "account-successfully-created": "Account successfully created",
+    "account-successfully-deleted": "Account successfully deleted"
+  },
+  "TopNav": {
+    "users": "Users",
+    "settings": "Settings",
+    "account-settings": "Account Settings"
+  },
+  "PageHeader": {
+    "users-summary": "Users Summary",
+    "account-settings": "Account Settings",
+    "security-settings": "Security Settings"
+  },
+  "Settings": {
+    "account": "Account",
+    "security": "Security"
+  },
+  "Gender": {
+    "female": "Female",
+    "male": "Male"
+  },
+  "Actions": {
+    "actions": "Actions",
+    "filter": "Filter",
+    "add-a-new-user": "Add a New User",
+    "user": "user",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "delete-field": "Delete {field}",
+    "delete-confirmation": "Are you sure you want to delete this {field}?",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "search": "Search"
+  },
+  "Table": {
+    "table": "Table",
+    "name": "Name",
+    "email": "Email",
+    "gender": "Gender",
+    "not-set": "Not set",
+    "actions": "Actions"
+  },
+  "DashboardList": {
+    "users-summary": "Users Summary"
+  },
+  "Errors": {
+    "field-already-exist": "{entity} already exist",
+    "field-not-found": "{entity} not found",
+
+    "isNotEmpty": "{field} should not be empty",
+    "isEmail": "{field} should be an email",
+    "isStrongPassword": "{field} should be a strong password"
+  },
+  "Entity": {
+    "user": "User",
+    "account": "Account"
+  }
+}

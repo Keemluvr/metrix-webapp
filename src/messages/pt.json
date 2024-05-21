@@ -1,0 +1,112 @@
+{
+  "SignIn": {
+    "get-started": "Começar",
+    "welcome-back": "Bem-vindo de volta!",
+    "login-to-your-account": "Faça login na sua conta"
+  },
+  "SignUp": {
+    "get-started": "Começar",
+    "create-your-free-account": "Crie sua conta gratuita"
+  },
+  "Form": {
+    "user-information": "Informações do usuário",
+    "edit-user": "Editar Usuário",
+    "save": "Salvar",
+    "close": "Fechar",
+    "full-name": "Nome Completo",
+    "your-full-name": "Seu Nome Completo",
+    "gender": "Sexo",
+    "email": "Email",
+    "email-address": "Endereço de Email",
+    "your-email-address": "Seu Endereço de Email",
+    "password": "Senha",
+    "new-password": "Nova Senha",
+    "create-a-strong-password": "Crie uma senha forte",
+    "age": "Idade",
+    "cpf": "CPF",
+    "rg": "RG",
+    "birthdate": "Data de Nascimento",
+    "contact": "Contato",
+    "phone": "Telefone",
+    "cellphone": "Celular",
+    "address": "Endereço",
+    "cep": "CEP",
+    "number": "Número",
+    "neighborhood": "Bairro",
+    "street": "Rua",
+    "city": "Cidade",
+    "state": "Estado",
+    "other-informations": "Outras Informações",
+    "mother-name": "Nome da Mãe",
+    "father-name": "Nome do Pai",
+    "physical": "Físico",
+    "height": "Altura",
+    "weight": "Peso",
+    "blood-type": "Tipo Sanguíneo",
+    "not-set": "Não definido",
+    "recover-password": "Recuperar senha",
+    "already-have-an-account": "Já tem uma conta?",
+    "dont-have-an-account": "Não tem uma conta?",
+    "sign-up": "Inscreva-se",
+    "field-is-required": "{field} é obrigatório",
+    "login": "Login",
+    "update": "Atualizar",
+    "account-successfully-created": "Conta criada com sucesso",
+    "account-successfully-deleted": "Conta excluída com sucesso"
+  },
+  "TopNav": {
+    "users": "Usuários",
+    "settings": "Configurações",
+    "account-settings": "Configurações da Conta"
+  },
+  "PageHeader": {
+    "users-summary": "Resumo dos Usuários",
+    "account-settings": "Configurações da Conta",
+    "security-settings": "Configurações de Segurança"
+  },
+  "Settings": {
+    "account": "Conta",
+    "security": "Segurança"
+  },
+  "Gender": {
+    "female": "Feminino",
+    "male": "Masculino"
+  },
+  "Actions": {
+    "actions": "Ações",
+    "filter": "Filtrar",
+    "add-a-new-user": "Adicionar um Novo Usuário",
+    "user": "usuário",
+    "view": "Ver",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "delete-field": "Excluir {field}",
+    "delete-confirmation": "Tem certeza de que deseja excluir este {field}?",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "search": "Pesquisar"
+  },
+  "Table": {
+    "table": "Tabela",
+    "name": "Nome",
+    "email": "Email",
+    "gender": "Sexo",
+    "not-set": "Não definido",
+    "actions": "Ações"
+  },
+  "DashboardList": {
+    "users-summary": "Resumo dos Usuários"
+  },
+  "Errors": {
+    "field-already-exist": "{field} já existe",
+    "field-not-found": "{entity} não encontrado",
+
+    "isNotEmpty": "{field} deve estar preenchido",
+    "isEmail": "{field} deve ser um email",
+    "isStrongPassword": "{field} deve ser uma senha forte"
+  },
+  "Entity": {
+    "user": "Usuário",
+    "account": "Conta"
+  }
+}
