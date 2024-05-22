@@ -6,12 +6,13 @@ import Account from "./components/account";
 import Security from "./components/security";
 import { Tab, Tabs } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import { className as classNameLayout } from "@/components/styles/layout";
 
 const Settings = () => {
   const t = useTranslations("Settings");
 
   return (
-    <div className="grid grid-cols-[80px_1fr]">
+    <div className={classNameLayout.mainWrapper}>
       <Sidebar />
       <main>
         <TopNav title="settings" path={[{ label: "settings", link: "/settings" }]} />
