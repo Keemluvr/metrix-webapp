@@ -13,12 +13,12 @@ type GenderProps<T extends FieldValues> = {
   isDisabled?: boolean;
 };
 
-export function Gender<T extends FieldValues>({
+const Gender = <T extends FieldValues>({
   control,
   label = "gender",
   isRequired = true,
   isDisabled = false
-}: GenderProps<T>) {
+}: GenderProps<T>) => {
   const t = useTranslations("Form");
   const tGender = useTranslations("Gender");
 
@@ -54,4 +54,6 @@ export function Gender<T extends FieldValues>({
       )}
     />
   );
-}
+};
+
+export default Gender;
