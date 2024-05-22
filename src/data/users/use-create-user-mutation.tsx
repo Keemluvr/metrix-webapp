@@ -5,6 +5,9 @@ import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { UseFormSetError } from "react-hook-form";
 import { Error } from "@/types/Error";
+import { kebabCase } from "@/helpers/format";
+import { format } from "@/constants/format";
+import { lengthRange } from "@/constants/length";
 import UserApi from "@/services/api/user";
 
 const mutationFn = async (data: User.Create): Promise<Response> => UserApi.Create(data);
@@ -27,9 +30,21 @@ const useCreateUserMutation = (setError: UseFormSetError<User.Create>) => {
         // Set errors on form
         if (typeof errors === "object")
           errors?.map((error: Error) => {
-            const errorKey = Object.keys(error.constraints)[0];
-            const errorField = error.property as keyof User.Create;
-            setError(errorField, { message: t(errorKey, { field: tForm(errorField) }) });
+            const hasChidren = !!error.children.length;
+            const children = error.children[0];
+            const errorConstraints = error.constraints ?? children.constraints;
+            const errorKey = kebabCase(Object.keys(errorConstraints)[0]);
+            const errorField = `${error.property}${hasChidren ? `.${children.property}` : ""}` as keyof User.Create;
+            const errorIntlField = hasChidren ? children.property : error.property;
+
+            setError(errorField, {
+              message: t(errorKey, {
+                field: tForm(errorIntlField),
+                format: format[errorIntlField as unknown as keyof typeof format] || "",
+                min: lengthRange[errorField as unknown as keyof typeof lengthRange]?.[0] || "",
+                max: lengthRange[errorField as unknown as keyof typeof lengthRange]?.[1] || ""
+              })
+            });
           });
 
         if (entity) toast.error(t(errors, { entity: tEntity(entity) }));

@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { deleteClassName as className } from "./styles";
+import { className } from "../styles";
 import { UseDeleteUser } from "@/hooks/useDeleteUser";
 
 interface ModalDeleteProps {
@@ -19,12 +19,6 @@ const ModalDelete = ({ id, onClose, onSuccess }: ModalDeleteProps) => {
   };
 
   const { onConfirm, isLoading } = UseDeleteUser(onSuccessDelete);
-
-  // useEffect(() => {
-  //   console.log(isSuccess);
-  //   if (isSuccess) {
-  //   }
-  // }, [isSuccess, onSuccess, onClose]);
 
   return (
     <>

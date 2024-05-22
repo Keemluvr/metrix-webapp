@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 
 type template<T> = {
-  isAllowed: boolean;
   action: (item: T) => JSX.Element;
 };
 
@@ -21,34 +20,29 @@ export function UseAction<T extends { id?: number }>({ items, templates, onOpen 
   const [modalTemplate, setModalTemplate] = useState<JSX.Element | undefined>(undefined);
 
   const actions = useMemo(() => {
-    let onView, onEdit, onDelete;
+    const onView = (selectedId: T["id"]) => {
+      const seleted = items.find((item) => item.id === selectedId) as T;
+      if (seleted) {
+        setModalTemplate(templates?.view?.action(seleted));
+        onOpen();
+      }
+    };
 
-    if (templates?.view?.isAllowed)
-      onView = (selectedId: T["id"]) => {
-        const seleted = items.find((item) => item.id === selectedId) as T;
-        if (seleted) {
-          setModalTemplate(templates?.view?.action(seleted));
-          onOpen();
-        }
-      };
+    const onEdit = (selectedId: number) => {
+      const seleted = items.find((item) => item.id === selectedId);
+      if (seleted) {
+        setModalTemplate(templates?.edit?.action(seleted));
+        onOpen();
+      }
+    };
 
-    if (templates?.edit?.isAllowed)
-      onEdit = (selectedId: number) => {
-        const seleted = items.find((item) => item.id === selectedId);
-        if (seleted) {
-          setModalTemplate(templates?.edit?.action(seleted));
-          onOpen();
-        }
-      };
-
-    if (templates?.delete?.isAllowed)
-      onDelete = (selectedId: number) => {
-        const seleted = items.find((item) => item.id === selectedId);
-        if (seleted) {
-          setModalTemplate(templates?.delete?.action(seleted));
-          onOpen();
-        }
-      };
+    const onDelete = (selectedId: number) => {
+      const seleted = items.find((item) => item.id === selectedId);
+      if (seleted) {
+        setModalTemplate(templates?.delete?.action(seleted));
+        onOpen();
+      }
+    };
 
     return { onView, onEdit, onDelete };
   }, [items, templates, onOpen]);
