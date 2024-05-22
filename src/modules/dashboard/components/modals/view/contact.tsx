@@ -3,9 +3,9 @@ import { Link, Skeleton } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { className } from "./styles";
 import { User } from "@/types/User";
+import { formatPhone } from "@/helpers/formatString";
 import Copyable from "@/components/copyable";
 import NotSetField from "./notSetField";
-import { sanitizePhone } from "@/helpers/sanitize";
 
 interface ContactViewProps {
   contact: User.Profile | undefined;
@@ -37,7 +37,7 @@ const ContactView = ({ contact, isLoaded }: ContactViewProps) => {
             classNames={className.copyable}
             label={
               <Link href={`tel:${contact?.phone}`} underline="hover" className={className.value}>
-                {contact?.phone ? sanitizePhone(contact.phone) : <NotSetField />}
+                {contact?.phone ? formatPhone(contact.phone) : <NotSetField />}
               </Link>
             }
           />
@@ -50,7 +50,7 @@ const ContactView = ({ contact, isLoaded }: ContactViewProps) => {
             classNames={className.copyable}
             label={
               <Link href={`tel:${contact?.cellphone}`} underline="hover" className={className.value}>
-                {contact?.cellphone ? sanitizePhone(contact.cellphone) : <NotSetField />}
+                {contact?.cellphone ? formatPhone(contact.cellphone) : <NotSetField />}
               </Link>
             }
           />

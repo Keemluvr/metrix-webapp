@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { className } from "./styles";
 import { Address } from "@/types/Address";
 import NotSetField from "./notSetField";
-import { sanitizeCEP } from "@/helpers/sanitize";
+import { formatCEP } from "@/helpers/formatString";
 
 interface AddressViewProps {
   address: Address | undefined;
@@ -19,7 +19,7 @@ const AddressView = ({ address, isLoaded }: AddressViewProps) => {
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>
         <div className={className.row}>
           <p className={className.label}>{t("cep")}:</p>
-          {address?.cep ? sanitizeCEP(address.cep) : <NotSetField />}
+          {address?.cep ? formatCEP(address.cep) : <NotSetField />}
         </div>
       </Skeleton>
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>

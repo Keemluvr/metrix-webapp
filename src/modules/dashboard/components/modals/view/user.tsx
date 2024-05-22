@@ -4,7 +4,8 @@ import { useTranslations } from "next-intl";
 import { className } from "./styles";
 import { GenderEnum } from "@/types/Gender";
 import { User } from "@/types/User";
-import { sanitizeCPF } from "@/helpers/sanitize";
+import { formatAge, formatDateByLocale } from "@/helpers/formatDate";
+import { formatCPF } from "@/helpers/formatString";
 import Copyable from "@/components/copyable";
 import GenderChip from "@/components/genderChip";
 import NotSetField from "./notSetField";
@@ -27,14 +28,8 @@ const UserView = ({ user, isLoaded }: UserViewProps) => {
       </Skeleton>
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>
         <div className={className.row}>
-          <p className={className.label}>{t("age")}:</p>
-          {user?.age || <NotSetField />}
-        </div>
-      </Skeleton>
-      <Skeleton className={className.skeleton} isLoaded={isLoaded}>
-        <div className={className.row}>
           <p className={className.label}>{t("cpf")}:</p>
-          <Copyable classNames={className.copyable} label={user?.cpf ? sanitizeCPF(user.cpf) : <NotSetField />} />
+          <Copyable classNames={className.copyable} label={user?.cpf ? formatCPF(user.cpf) : <NotSetField />} />
         </div>
       </Skeleton>
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>
@@ -46,7 +41,13 @@ const UserView = ({ user, isLoaded }: UserViewProps) => {
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>
         <div className={className.row}>
           <p className={className.label}>{t("birthdate")}:</p>
-          {user?.birthdate || <NotSetField />}
+          {user?.birthdate ? formatDateByLocale(user.birthdate) : <NotSetField />}
+        </div>
+      </Skeleton>
+      <Skeleton className={className.skeleton} isLoaded={isLoaded}>
+        <div className={className.row}>
+          <p className={className.label}>{t("age")}:</p>
+          {user?.birthdate ? formatAge(user.birthdate) : <NotSetField />}
         </div>
       </Skeleton>
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>

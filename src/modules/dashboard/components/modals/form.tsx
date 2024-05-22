@@ -1,7 +1,6 @@
 import React from "react";
 import { Control } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { sanitizeCEP, sanitizeCPF, sanitizePhone } from "@/helpers/sanitize";
 import { User } from "@/types/User";
 import { BLOOD_TYPES } from "@/constants/bloodType";
 import { STATES } from "@/constants/state";
@@ -14,6 +13,7 @@ import Select from "@/components/form/select";
 import Text from "@/components/form/text";
 import Password from "@/components/form/password";
 import { USER_ZODIAC_SIGNS } from "@/constants/zodiacSign";
+import { formatCPF, formatPhone } from "@/helpers/formatString";
 
 interface FormProps {
   control: Control<User.Profile>;
@@ -32,7 +32,7 @@ const Form = ({ control, isLoading }: FormProps) => {
         label="cpf"
         field="cpf"
         maxLength={14}
-        format={(cpf) => sanitizeCPF(cpf)}
+        format={(cpf) => formatCPF(cpf)}
       />
       <Number control={control} isDisabled={isLoading} label="rg" field="rg" />
       <Birthdate control={control} isDisabled={isLoading} />
@@ -55,7 +55,7 @@ const Form = ({ control, isLoading }: FormProps) => {
         label="phone"
         field="phone"
         maxLength={14}
-        format={(phone) => sanitizePhone(phone)}
+        format={(phone) => formatPhone(phone)}
       />
       <Number
         control={control}
@@ -63,7 +63,7 @@ const Form = ({ control, isLoading }: FormProps) => {
         label="cellphone"
         field="cellphone"
         maxLength={14}
-        format={(cellphone) => sanitizePhone(cellphone)}
+        format={(cellphone) => formatPhone(cellphone)}
       />
 
       <h3>{t("physical")}</h3>
