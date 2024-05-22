@@ -4,15 +4,16 @@ import { Modal, Pagination, useDisclosure } from "@nextui-org/react";
 import { UseAction } from "@/hooks/useActions";
 import { useMemo } from "react";
 import { User } from "@/types/User";
+import { className } from "./styles";
 import useUsersQuery from "@/data/users/use-users-query";
 import ListHeader from "../../../../components/listHeader";
 import Table from "@/components/table";
 import useTable from "@/hooks/useTable";
 import TableHeader from "@/components/table/tableHeader";
-import ModalView from "./modals/view";
-import ModalEdit from "./modals/edit";
-import ModalDelete from "./modals/delete";
-import ModalCreate from "./modals/create";
+import ModalView from "../modals/view";
+import ModalDelete from "../modals/delete";
+import ModalCreate from "../modals/create";
+import ModalEdit from "../modals/edit";
 
 const List = () => {
   const { data = [], refetch, isLoading } = useUsersQuery();
@@ -31,15 +32,12 @@ const List = () => {
 
   const templates = {
     view: {
-      isAllowed: true,
       action: (user: User.Profile) => <ModalView id={user.id} />
     },
-    // edit: {
-    //   isAllowed: true,
-    //   action: (user: User.Profile) => <ModalEdit user={user} onClose={onClose} onSuccess={refetch} />
-    // },
+    edit: {
+      action: (user: User.Profile) => <ModalEdit user={user} onClose={onClose} onSuccess={refetch} />
+    },
     delete: {
-      isAllowed: true,
       action: (user: User.Profile) => <ModalDelete id={user.id} onClose={onClose} onSuccess={refetch} />
     }
   };
@@ -82,17 +80,15 @@ const List = () => {
   }, [page, rowsPerPage, data.length]);
 
   return (
-    <div className="mx-5">
+    <div className={className.wrapper}>
       <ListHeader title="users-summary" />
 
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         backdrop="blur"
-        className="absolute top-0"
-        classNames={{
-          wrapper: "absolute overflow-y-scroll top-0 w-full"
-        }}
+        className={className.modalWrapper}
+        classNames={className.modal}
       >
         {modalTemplate}
       </Modal>
