@@ -51,17 +51,14 @@ const Number = <T extends FieldValues>({
           isDisabled={isDisabled}
           errorMessage={error?.message || ""}
           maxLength={maxLength}
+          type={format ? "text" : "number"}
+          {...(format && {
+            onValueChange: (value) => {
+              setNewValue(format(value));
+            },
+            value: String(newValue)
+          })}
           {...field}
-          {...(format
-            ? {
-                onValueChange: (value) => {
-                  setNewValue(format(value));
-                },
-                value: String(newValue)
-              }
-            : {
-                type: "number"
-              })}
         />
       )}
     />
