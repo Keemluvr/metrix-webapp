@@ -18,7 +18,6 @@ export function UseEditUser({ user, onSuccess }: UseEditUserProps) {
       "createdAt",
       "updatedAt",
       "address",
-      "physical",
       "sub",
       "accessToken",
       "iat",
