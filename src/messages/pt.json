@@ -79,7 +79,8 @@
   },
   "Gender": {
     "female": "Feminino",
-    "male": "Masculino"
+    "male": "Masculino",
+    "not-set": "Não definido"
   },
   "Actions": {
     "actions": "Ações",

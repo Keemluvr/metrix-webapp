@@ -53,7 +53,7 @@ const UserView = ({ user, isLoaded }: UserViewProps) => {
       <Skeleton className={className.skeleton} isLoaded={isLoaded}>
         <div className={className.row}>
           <p className={className.label}>{t("gender")}:</p>
-          {user?.gender ? <GenderChip gender={user.gender as GenderEnum} /> : <NotSetField />}
+          {user?.gender ? <GenderChip gender={(user.gender as GenderEnum) || "not-set"} /> : <NotSetField />}
         </div>
       </Skeleton>
     </>
