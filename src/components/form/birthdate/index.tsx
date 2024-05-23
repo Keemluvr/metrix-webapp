@@ -43,6 +43,8 @@ const Birthdate = <T extends FieldValues>({
           isDisabled={isDisabled}
           errorMessage={error?.message || ""}
           showMonthAndYearPickers
+          hideTimeZone
+          granularity="day"
           selectorIcon={<CalendarIcon color={identifyColorForTheState(error)} />}
           maxValue={today(getLocalTimeZone())}
           {...field}
