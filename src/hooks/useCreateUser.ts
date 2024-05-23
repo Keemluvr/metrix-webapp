@@ -6,7 +6,7 @@ import { CalendarDate, getLocalTimeZone } from "@internationalized/date";
 import useCreateUserMutation from "@/data/users/use-create-user-mutation";
 
 export function UseCreateUser(onSuccess: () => void) {
-  const { handleSubmit, control, setError } = useForm<User.Create>({});
+  const { handleSubmit, control, setError } = useForm<User.Create>();
   const { createUser, isPending: isLoading } = useCreateUserMutation(setError);
 
   const onFinish = async (data: User.Create) => {

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "@/navigation";
 import { toast } from "react-toastify";
-import { kebabCase } from "@/helpers/format";
+import { kebabCase } from "@/helpers/formatString";
 import { useTranslations } from "next-intl";
 
 const useSignIn = () => {

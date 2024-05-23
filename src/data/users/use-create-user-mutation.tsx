@@ -5,13 +5,21 @@ import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { UseFormSetError } from "react-hook-form";
 import { Error } from "@/types/Error";
-import { kebabCase } from "@/helpers/format";
 import { format } from "@/constants/format";
 import { lengthRange } from "@/constants/length";
+import { kebabCase } from "@/helpers/formatString";
 import UserApi from "@/services/api/user";
+import { getSession } from "next-auth/react";
+import { redirect } from "@/navigation";
 
-const mutationFn = async (data: User.Create): Promise<Response> => UserApi.Create(data);
+const mutationFn = async (data: User.Create): Promise<Response> => {
+  const session = await getSession();
 
+  const { accessToken } = session!.user;
+  if (!accessToken) redirect("/");
+
+  return UserApi.Create(accessToken, data);
+};
 const useCreateUserMutation = (setError: UseFormSetError<User.Create>) => {
   const t = useTranslations("Errors");
   const tForm = useTranslations("Form");

@@ -2,7 +2,7 @@ import React from "react";
 import { ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { className } from "./styles";
-import { UseCreateUser } from "@/hooks/useCreate";
+import { UseCreateUser } from "@/hooks/useCreateUser";
 import Form from "../form";
 
 interface ModalCreateProps {
@@ -28,7 +28,7 @@ const ModalCreate = ({ onClose, onSuccess }: ModalCreateProps) => {
             <p>{t("edit-user")}</p>
           </ModalHeader>
           <ModalBody>
-            <Form control={control} isLoading={isLoading} />
+            <Form control={control} isLoading={isLoading} withPassword />
           </ModalBody>
           <ModalFooter>
             <div className={className.footer}>

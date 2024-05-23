@@ -5,6 +5,7 @@ import { UseFormSetError } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { Error } from "@/types/Error";
 import { toast } from "react-toastify";
+import { kebabCase } from "@/helpers/formatString";
 import SessionApi from "@/services/api/session";
 
 const mutationFn = async (data: UserType.Create): Promise<Response> => SessionApi.signUp(data);
@@ -27,7 +28,7 @@ const useSignUpMutation = (setError: UseFormSetError<Auth.SignUp>) => {
         // Set errors on form
         if (typeof errors === "object")
           errors?.map((error: Error) => {
-            const errorKey = Object.keys(error.constraints)[0];
+            const errorKey = kebabCase(Object.keys(error.constraints)[0]);
             const errorField = error.property as keyof Auth.SignUp;
             setError(errorField, { message: t(errorKey, { field: tForm(errorField) }) });
           });

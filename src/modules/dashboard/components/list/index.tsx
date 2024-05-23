@@ -35,7 +35,7 @@ const List = () => {
       action: (user: User.Profile) => <ModalView id={user.id} />
     },
     edit: {
-      action: (user: User.Profile) => <ModalEdit user={user} onClose={onClose} onSuccess={refetch} />
+      action: (user: User.Profile) => <ModalEdit id={user.id} onClose={onClose} onSuccess={refetch} />
     },
     delete: {
       action: (user: User.Profile) => <ModalDelete id={user.id} onClose={onClose} onSuccess={refetch} />

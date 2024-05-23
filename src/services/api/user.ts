@@ -23,10 +23,11 @@ export default class User {
     });
   };
 
-  static Create(data: UserType.Create) {
+  static Create(token: string, data: UserType.Create) {
     return fetch(`${this.BASE_API}/user`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
