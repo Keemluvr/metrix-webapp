@@ -1,27 +1,31 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { User } from "@/types/User";
 import { UseEditUser } from "@/hooks/useEditUser";
 import { className } from "../styles";
 import Form from "../form";
+import useViewUserQuery from "@/data/users/use-view-user.query";
 
 interface ModalEditProps {
-  user: User.Profile;
+  id: number;
   onClose: () => void;
   onSuccess: () => void;
 }
 
-const ModalEdit = ({ user, onClose, onSuccess }: ModalEditProps) => {
+const ModalEdit = ({ id, onClose, onSuccess }: ModalEditProps) => {
   const t = useTranslations("Form");
-  const { control, onSubmit, isLoading, isSuccess } = UseEditUser();
 
-  useEffect(() => {
-    if (isSuccess) {
-      onSuccess();
-      onClose();
-    }
-  }, [isSuccess, onSuccess, onClose]);
+  const { data: user, isLoading: isUserLoading, refetch } = useViewUserQuery(id);
+
+  const onSuccessUpdate = () => {
+    onSuccess();
+    refetch();
+    onClose();
+  };
+
+  const { control, onSubmit, isLoading: isSubmitLoading } = UseEditUser({ user, onSuccess: onSuccessUpdate });
+
+  const isLoading = isUserLoading || isSubmitLoading;
 
   return (
     <>
