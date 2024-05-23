@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link, usePathname } from "@/navigation";
 import { Button } from "@nextui-org/react";
-// import { signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { className } from "./style";
 import Users from "../svg/users";
 import Settings from "../svg/settings";
@@ -44,7 +44,7 @@ const Sidebar = () => {
 
       <Button
         color="default"
-        // onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
+        onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
         className={classNameSidebar.footer.signUpButton}
       >
         <LogOut />

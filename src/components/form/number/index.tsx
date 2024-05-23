@@ -42,25 +42,30 @@ const Number = <T extends FieldValues>({
       name={field as Path<T>}
       control={control}
       rules={rules}
-      render={({ field, fieldState: { error } }) => (
-        <Input
-          classNames={classNames}
-          placeholder={t(label)}
-          startContent={startContent}
-          isInvalid={!!error}
-          isDisabled={isDisabled}
-          errorMessage={error?.message || ""}
-          maxLength={maxLength}
-          type={format ? "text" : "number"}
-          {...(format && {
-            onValueChange: (value) => {
-              setNewValue(format(value));
-            },
-            value: String(newValue)
-          })}
-          {...field}
-        />
-      )}
+      render={({ field, fieldState: { error } }) => {
+        const { value, ...rest } = field;
+        return (
+          <Input
+            classNames={classNames}
+            placeholder={t(label)}
+            startContent={startContent}
+            isInvalid={!!error}
+            isDisabled={isDisabled}
+            errorMessage={error?.message || ""}
+            maxLength={maxLength}
+            {...rest}
+            {...(format
+              ? {
+                  onValueChange: (value) => setNewValue(format(value)),
+                  value: value ? format(value) : String(newValue)
+                }
+              : {
+                  value,
+                  type: "number"
+                })}
+          />
+        );
+      }}
     />
   );
 };
