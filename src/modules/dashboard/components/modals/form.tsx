@@ -1,26 +1,26 @@
 import React from "react";
-import { Control } from "react-hook-form";
+import { Control, FieldValues } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { User } from "@/types/User";
+import { USER_ZODIAC_SIGNS } from "@/constants/zodiacSign";
 import { BLOOD_TYPES } from "@/constants/bloodType";
+import { GENDERS } from "@/constants/gender";
 import { STATES } from "@/constants/state";
 import Email from "@/components/form/email";
 import FullName from "@/components/form/fullname";
 import Birthdate from "@/components/form/birthdate";
 import Number from "@/components/form/number";
-import Gender from "@/components/form/gender";
 import Select from "@/components/form/select";
 import Text from "@/components/form/text";
 import Password from "@/components/form/password";
-import { USER_ZODIAC_SIGNS } from "@/constants/zodiacSign";
-import { formatCPF, formatPhone } from "@/helpers/formatString";
+import { formatCEP, formatCPF, formatPhone } from "@/helpers/formatString";
 
-interface FormProps {
-  control: Control<User.Profile>;
+interface FormProps<T extends FieldValues> {
+  control: Control<T>;
   isLoading: boolean;
+  withPassword?: boolean;
 }
 
-const Form = ({ control, isLoading }: FormProps) => {
+const Form = <T extends FieldValues>({ control, isLoading, withPassword = false }: FormProps<T>) => {
   const t = useTranslations("Form");
 
   return (
@@ -36,7 +36,8 @@ const Form = ({ control, isLoading }: FormProps) => {
       />
       <Number control={control} isDisabled={isLoading} label="rg" field="rg" />
       <Birthdate control={control} isDisabled={isLoading} />
-      <Gender control={control} isDisabled={isLoading} />
+      <Select control={control} isDisabled={isLoading} label="gender" field="gender" items={GENDERS} withIntl />
+
       <Select
         withIntl
         control={control}
@@ -45,7 +46,7 @@ const Form = ({ control, isLoading }: FormProps) => {
         field="zodiacSign"
         items={USER_ZODIAC_SIGNS}
       />
-      <Password control={control} isDisabled={isLoading} />
+      {withPassword && <Password control={control} isDisabled={isLoading} />}
 
       <h3>{t("contact")}</h3>
       <Email control={control} isDisabled={isLoading} />
@@ -84,7 +85,7 @@ const Form = ({ control, isLoading }: FormProps) => {
         label="cep"
         field="address.cep"
         maxLength={9}
-        format={(cep) => sanitizeCEP(cep)}
+        format={(cep) => formatCEP(cep)}
       />
       <Text control={control} isDisabled={isLoading} label="street" field="address.street" />
       <Number control={control} isDisabled={isLoading} label="number" field="address.number" />
