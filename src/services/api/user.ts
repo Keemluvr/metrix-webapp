@@ -33,8 +33,8 @@ export default class User {
     });
   }
 
-  static Update = async (token: string, data: UserType.Edit) => {
-    return fetch(`${this.BASE_API}/user`, {
+  static Update = async (token: string, id: number, data: UserType.Edit) => {
+    return fetch(`${this.BASE_API}/user/${id}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

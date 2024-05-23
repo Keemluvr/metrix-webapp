@@ -1,3 +1,4 @@
+import { ZonedDateTime } from "@internationalized/date";
 import { Address } from "./Address";
 import { Contact } from "./Contact";
 import { Physical } from "./Physical";
@@ -6,7 +7,6 @@ export namespace User {
   export type Profile = Contact & {
     id: number;
     name: string;
-    age: number;
     cpf: string;
     rg: string;
     birthdate: string;
@@ -21,7 +21,11 @@ export namespace User {
 
   export type Create = Profile;
 
-  export type Edit = Profile;
+  export type Edit = Profile & {
+    birthdate: string | ZonedDateTime;
+    updatedAt?: ZonedDateTime;
+    createdAt?: ZonedDateTime;
+  };
 
   export type List = Profile[];
 }

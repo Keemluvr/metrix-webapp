@@ -1,7 +1,7 @@
 export type Physical = {
-  id: number;
+  id?: number;
   height: number;
   weight: number;
   bloodType: string;
-  userId: number;
+  userId?: number;
 };
