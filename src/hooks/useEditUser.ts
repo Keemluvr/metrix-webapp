@@ -30,7 +30,6 @@ export function UseEditUser({ user, onSuccess }: UseEditUserProps) {
   };
 
   const formatUser = (user: User.Session | User.Edit | undefined) => {
-    console.log(">>>", user?.birthdate, typeof user?.birthdate);
     return {
       ...removeUnexpectedProperties(user as User.Session),
       cpf: user?.cpf ? formatCPF(user?.cpf) : "",
