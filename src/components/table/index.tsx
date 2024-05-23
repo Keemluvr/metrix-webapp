@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentPropsWithoutRef, useCallback, useMemo } from "react";
+import { ComponentPropsWithoutRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Actions, Columns } from "./types";
 import { checkboxClassNames, classNames } from "./styles";
@@ -31,9 +31,6 @@ const Table = <T extends Record<string, unknown>>({
 }: TableProps<T>): JSX.Element => {
   const t = useTranslations("Table");
 
-  const classNamesTable = useMemo(() => classNames, []);
-  const classNamesCheckbox = useMemo(() => checkboxClassNames, []);
-
   const renderCell = useCallback(
     (data: T, columnKey: keyof T, actions?: Actions): JSX.Element => (
       <TableCell item={data} columnKey={columnKey} actions={actions} />
@@ -43,13 +40,13 @@ const Table = <T extends Record<string, unknown>>({
 
   return (
     <TableUI
-      classNames={classNamesTable}
+      classNames={classNames}
       aria-label={t("table")}
       topContentPlacement="inside"
       checkboxesProps={{
         color: "primary",
         size: "lg",
-        classNames: classNamesCheckbox
+        classNames: checkboxClassNames
       }}
       {...rest}
     >

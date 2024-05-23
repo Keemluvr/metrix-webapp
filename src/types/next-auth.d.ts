@@ -1,18 +1,11 @@
 import "next-auth";
+import UserType from "./User";
 
 declare module "next-auth" {
-  interface User {
-    email: string;
-  }
+  interface User extends UserType.Profile {}
 
-  interface Session {
-    user: User & {
-      email: string;
-      accessToken: string;
-      role: string;
-    };
-    token: {
-      email: string;
+  interface Session extends UserType.Profile {
+    user: {
       accessToken: string;
     };
   }

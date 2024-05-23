@@ -1,9 +1,9 @@
 "use client";
 
 import { Button, Input } from "@nextui-org/react";
-import { Dispatch, SetStateAction, useCallback, useMemo } from "react";
+import { Dispatch, SetStateAction, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { tableHeaderClassName } from "./styles";
+import { tableHeaderClassName as className } from "./styles";
 import Search from "../svg/search";
 import Plus from "../svg/plus";
 
@@ -18,8 +18,6 @@ type TableHeaderProps = {
 
 const TableHeader = ({ filterValue, setFilterValue, setPage, onAddNew }: TableHeaderProps) => {
   const t = useTranslations("Actions");
-
-  const className = useMemo(() => tableHeaderClassName, []);
 
   const onSearchChange = useCallback(
     (value?: string) => {

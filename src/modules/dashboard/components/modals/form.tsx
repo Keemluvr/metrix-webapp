@@ -5,14 +5,13 @@ import { USER_ZODIAC_SIGNS } from "@/constants/zodiacSign";
 import { BLOOD_TYPES } from "@/constants/bloodType";
 import { GENDERS } from "@/constants/gender";
 import { STATES } from "@/constants/state";
+import { formatCEP, formatCPF, formatPhone } from "@/helpers/formatString";
 import Email from "@/components/form/email";
-import FullName from "@/components/form/fullname";
-import Birthdate from "@/components/form/birthdate";
 import Number from "@/components/form/number";
 import Select from "@/components/form/select";
 import Text from "@/components/form/text";
 import Password from "@/components/form/password";
-import { formatCEP, formatCPF, formatPhone } from "@/helpers/formatString";
+import DatePicker from "@/components/form/datePicker";
 
 interface FormProps<T extends FieldValues> {
   control: Control<T>;
@@ -25,7 +24,7 @@ const Form = <T extends FieldValues>({ control, isLoading, withPassword = false 
 
   return (
     <>
-      <FullName control={control} isDisabled={isLoading} />
+      <Text control={control} isDisabled={isLoading} label="full-name" field="name" />
       <Number
         control={control}
         isDisabled={isLoading}
@@ -35,7 +34,7 @@ const Form = <T extends FieldValues>({ control, isLoading, withPassword = false 
         format={(cpf) => formatCPF(cpf)}
       />
       <Number control={control} isDisabled={isLoading} label="rg" field="rg" />
-      <Birthdate control={control} isDisabled={isLoading} />
+      <DatePicker control={control} isDisabled={isLoading} label="birthdate" field="birthdate" />
       <Select control={control} isDisabled={isLoading} label="gender" field="gender" items={GENDERS} withIntl />
 
       <Select

@@ -37,6 +37,22 @@
     "city": "Cidade",
     "state": "Estado",
     "other-informations": "Outras Informações",
+    "zodiac-sign": "Signo",
+    "family": "Família",
+    "aries": "Áries",
+    "taurus": "Touro",
+    "gemini": "Gêmeos",
+    "cancer": "Câncer",
+    "leo": "Leão",
+    "virgo": "Virgem",
+    "libra": "Libra",
+    "scorpio": "Escorpião",
+    "sagittarius": "Sagitário",
+    "capricorn": "Capricórnio",
+    "aquarius": "Aquário",
+    "pisces": "Peixes",
+    "male": "Masculino",
+    "female": "Feminino",
     "mother-name": "Nome da Mãe",
     "father-name": "Nome do Pai",
     "physical": "Físico",
@@ -52,21 +68,14 @@
     "login": "Login",
     "update": "Atualizar",
     "account-successfully-created": "Conta criada com sucesso",
-    "account-successfully-deleted": "Conta excluída com sucesso"
+    "account-successfully-deleted": "Conta excluída com sucesso",
+    "account-successfully-updated": "Conta atualizada com sucesso"
   },
   "TopNav": {
-    "users": "Usuários",
-    "settings": "Configurações",
-    "account-settings": "Configurações da Conta"
+    "users": "Usuários"
   },
   "PageHeader": {
-    "users-summary": "Resumo dos Usuários",
-    "account-settings": "Configurações da Conta",
-    "security-settings": "Configurações de Segurança"
-  },
-  "Settings": {
-    "account": "Conta",
-    "security": "Segurança"
+    "users-summary": "Resumo dos Usuários"
   },
   "Gender": {
     "female": "Feminino",
@@ -100,10 +109,16 @@
   "Errors": {
     "field-already-exist": "{field} já existe",
     "field-not-found": "{entity} não encontrado",
-
-    "isNotEmpty": "{field} deve estar preenchido",
-    "isEmail": "{field} deve ser um email",
-    "isStrongPassword": "{field} deve ser uma senha forte"
+    "is-not-empty": "{field} deve estar preenchido",
+    "is-email": "{field} deve ser um email",
+    "is-strong-password": "{field} deve ser uma senha forte",
+    "matches": "{field} deve ter o seguinte formato: {format}",
+    "whitelist-validaton": "{field} deve ser um {entity}",
+    "is-length": "{field} deve ter entre {min} e {max} caracteres",
+    "is-iso8601": "{field} deve ser uma data no formato ISO8601",
+    "internal-server-error": "Erro interno do servidor. Tente novamente mais tarde.",
+    "already-exist-property-for-another-user": "Já existe este email, CPF ou RG registrado",
+    "unauthorized": "Não autorizado"
   },
   "Entity": {
     "user": "Usuário",

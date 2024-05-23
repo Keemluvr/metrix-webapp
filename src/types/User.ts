@@ -28,6 +28,15 @@ export namespace User {
   };
 
   export type List = Profile[];
+
+  export type Session = Profile &
+    Edit & {
+      sub: string;
+      accessToken: string;
+      iat: number;
+      exp: number;
+      jti: string;
+    };
 }
 
 export namespace Auth {

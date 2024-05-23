@@ -5,9 +5,9 @@ import { Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { UseSignUp } from "@/hooks/useSignUp";
 import { className } from "./style";
-import FullName from "@/components/form/fullname";
 import Email from "@/components/form/email";
 import Password from "@/components/form/password";
+import Text from "@/components/form/text";
 
 const Form = () => {
   const t = useTranslations("Form");
@@ -15,7 +15,7 @@ const Form = () => {
 
   return (
     <form onSubmit={onSubmit} className={className.formWrapper}>
-      <FullName label="your-full-name" control={control} isDisabled={isLoading} />
+      <Text label="your-full-name" field="name" control={control} isDisabled={isLoading} />
       <Email label="your-email-address" control={control} isDisabled={isLoading} />
       <Password label="create-a-strong-password" control={control} isDisabled={isLoading} />
 

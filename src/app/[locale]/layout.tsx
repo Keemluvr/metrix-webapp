@@ -1,9 +1,9 @@
 import NextIntlProvider from "@/providers/internationalization";
 import { getMessages } from "next-intl/server";
 import { inter, poppins } from "../fonts";
+import Providers from "@/providers";
 import clsx from "clsx";
 import "../globals.css";
-import Providers from "@/providers";
 
 type LocaleLayoutProps = {
   children: React.ReactNode;

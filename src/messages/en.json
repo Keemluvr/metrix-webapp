@@ -37,6 +37,22 @@
     "city": "City",
     "state": "State",
     "other-informations": "Other Informations",
+    "zodiac-sign": "Zodiac Sign",
+    "family": "Family",
+    "aries": "Aries",
+    "taurus": "Taurus",
+    "gemini": "Gemini",
+    "cancer": "Cancer",
+    "leo": "Leo",
+    "virgo": "Virgo",
+    "libra": "Libra",
+    "scorpio": "Scorpio",
+    "sagittarius": "Sagittarius",
+    "capricorn": "Capricorn",
+    "aquarius": "Aquarius",
+    "pisces": "Pisces",
+    "male": "Male",
+    "female": "Female",
     "mother-name": "Mother Name",
     "father-name": "Father Name",
     "physical": "Physical",
@@ -52,21 +68,14 @@
     "login": "Login",
     "update": "Update",
     "account-successfully-created": "Account successfully created",
-    "account-successfully-deleted": "Account successfully deleted"
+    "account-successfully-deleted": "Account successfully deleted",
+    "account-successfully-updated": "Account successfully updated"
   },
   "TopNav": {
-    "users": "Users",
-    "settings": "Settings",
-    "account-settings": "Account Settings"
+    "users": "Users"
   },
   "PageHeader": {
-    "users-summary": "Users Summary",
-    "account-settings": "Account Settings",
-    "security-settings": "Security Settings"
-  },
-  "Settings": {
-    "account": "Account",
-    "security": "Security"
+    "users-summary": "Users Summary"
   },
   "Gender": {
     "female": "Female",
@@ -100,10 +109,16 @@
   "Errors": {
     "field-already-exist": "{entity} already exist",
     "field-not-found": "{entity} not found",
-
-    "isNotEmpty": "{field} should not be empty",
-    "isEmail": "{field} should be an email",
-    "isStrongPassword": "{field} should be a strong password"
+    "is-not-empty": "{field} should not be empty",
+    "is-email": "{field} should be an email",
+    "is-strong-password": "{field} should be a strong password. It should have at least 8 characters, including one uppercase letter, one lowercase letter, characters and one number.",
+    "matches": "{field} should have the following format: {format}",
+    "whitelist-validaton": "{field} should be a valid {entity}",
+    "is-length": "{field} should have between {min} and {max} characters",
+    "is-iso8601": "{field} should be a valid date format",
+    "internal-server-error": "Internal server error. Try again later.",
+    "already-exist-property-for-another-user": "Already exist this email, CPF or RG for another user",
+    "unauthorized": "Unauthorized"
   },
   "Entity": {
     "user": "User",

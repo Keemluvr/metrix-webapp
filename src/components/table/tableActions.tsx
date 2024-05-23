@@ -4,8 +4,8 @@ import VerticalDots from "../svg/vertical-dots";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import { Actions } from "./types";
 import { useTranslations } from "next-intl";
-import { useMemo } from "react";
 import { tableActionsClassName } from "./styles";
+import { useMemo } from "react";
 
 type Action = {
   name: string;
@@ -21,20 +21,18 @@ const TableActions = <T extends Record<string, unknown>>({ actions, item }: Tabl
   const { onView, onEdit, onDelete } = actions ?? {};
   const t = useTranslations("Actions");
 
-  const classNameActions = useMemo(() => tableActionsClassName, []);
-
   const availableActions: Action[] = useMemo(() => {
     const actionsArray: Action[] = [];
 
-    if (onView) actionsArray.push({ name: "view", action: () => onView(item?.id as string) });
-    if (onEdit) actionsArray.push({ name: "edit", action: () => onEdit(item?.id as string) });
-    if (onDelete) actionsArray.push({ name: "delete", action: () => onDelete(item?.id as string) });
+    if (onView) actionsArray.push({ name: "view", action: () => onView(item?.id as number) });
+    if (onEdit) actionsArray.push({ name: "edit", action: () => onEdit(item?.id as number) });
+    if (onDelete) actionsArray.push({ name: "delete", action: () => onDelete(item?.id as number) });
 
     return actionsArray;
   }, [onView, onEdit, onDelete, item?.id]);
 
   return (
-    <div className={classNameActions}>
+    <div className={tableActionsClassName}>
       <Dropdown>
         <DropdownTrigger>
           <Button isIconOnly size="sm" variant="light">

@@ -11,7 +11,7 @@ const getUsers = async (): Promise<User.List[]> => {
   if (!accessToken) redirect("/");
 
   const response = await UserAPI.List(accessToken as string).then((res) => res.json());
-  return response;
+  return response as User.List[];
 };
 
 const useUsersQuery = () => {

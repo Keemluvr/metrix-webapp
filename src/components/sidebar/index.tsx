@@ -1,10 +1,8 @@
-import { useMemo } from "react";
 import { Link, usePathname } from "@/navigation";
 import { Button } from "@nextui-org/react";
 import { signOut } from "next-auth/react";
 import { className } from "./style";
 import Users from "../svg/users";
-import Settings from "../svg/settings";
 import LogOut from "../svg/logout";
 import clsx from "clsx";
 
@@ -19,23 +17,17 @@ const Sidebar = () => {
     {
       link: "/admin",
       label: <Users selected={pathname === "/admin"} />
-    },
-    {
-      link: "/settings",
-      label: <Settings selected={pathname === "/settings"} />
     }
   ];
 
-  const classNameSidebar = useMemo(() => className, []);
-
   return (
-    <nav className={classNameSidebar.wrapper}>
-      <div className={classNameSidebar.main}>
+    <nav className={className.wrapper}>
+      <div className={className.main}>
         {items.map((item) => (
           <Link
             key={[item.link].toString()}
             href={item.link}
-            className={clsx(classNameSidebar.item, onHoverItem(pathname, item))}
+            className={clsx(className.item, onHoverItem(pathname, item))}
           >
             {item.label}
           </Link>
@@ -45,7 +37,7 @@ const Sidebar = () => {
       <Button
         color="default"
         onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
-        className={classNameSidebar.footer.signUpButton}
+        className={className.footer.signUpButton}
       >
         <LogOut />
       </Button>
