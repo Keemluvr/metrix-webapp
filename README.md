@@ -1,6 +1,6 @@
 ## Sobre o projeto
 
-![chrome-capture-2024-3-15](https://github.com/Keemluvr/metrix/assets/31359251/6f256e20-6352-45d1-b524-8a1b7e9f1c38)
+![322352378-6f256e20-6352-45d1-b524-8a1b7e9f1c38](https://github.com/Keemluvr/metrix-webapp/assets/31359251/0030007a-a891-4c67-8316-d95864d0963e)
 
 Esta aplicação requer autenticação para ser utilizada. Após o login, os usuários são listados e têm acesso a operações de criação, leitura, atualização e exclusão (CRUD) de usuários.
 
@@ -27,7 +27,6 @@ Esta aplicação requer autenticação para ser utilizada. Após o login, os usu
 
 ### Ferramentas de Desenvolvimento:
 
-- **Husky**: Ferramenta para execução de scripts Git hooks.
 - **Prettier**: Ferramenta para formatação de código.
 - **ESLint**: Ferramenta para análise estática de código em JavaScript e TypeScript.
 
@@ -46,7 +45,6 @@ Esta aplicação requer autenticação para ser utilizada. Após o login, os usu
     NEXT_PUBLIC_INITIAL_PATH_URL="http://localhost:3000"
     NEXT_PUBLIC_INITIAL_PATH_URL_API="http://localhost:8080"
     NEXTAUTH_SECRET="loremipsumdolor"
-    NEXTAUTH_URL="http://localhost:3000"
    ```
 
 3. Execute a aplicação:
@@ -69,6 +67,7 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 |-- cypress/
 |-- public/
 |-- src/
+    |-- __tests__/
     |-- app/
     |-- components/
     |-- config/
@@ -83,6 +82,7 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
     |-- services/
     |-- types/
 |-- cypress.config.ts
+|-- jest.config.ts
 |-- next.config.ts
 |-- tailwind.config.ts
 |-- README.md
@@ -97,6 +97,7 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 - Contém os arquivos estáticos da aplicação, como ícones e imagens.
 
 #### `/src`
+-  **`__tests__`**: Contém os tests unitários dos components.
 
 - **`app`**: Contém o componente principal da aplicação, onde fica estruturado as páginas e rotas da API e sua inicialização.
 
@@ -131,6 +132,8 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 ### Outros Arquivos
 
 - **`cypress.config.ts`**: Arquivo de configuração do Cypress.
+  
+- **`jest.config.ts`**: Arquivo de configuração do Jest.
 
 - **`next.config.ts`**: Arquivo de configuração do Next.js.
 
@@ -143,3 +146,6 @@ Esta estrutura organiza o código de forma modular e separa claramente as respon
 - [ ] (Melhoria) Acessibilidade
 - [ ] (Ajuste) Deslogar o usuário caso ele exclua a própria conta
 - [ ] (Ajuste) Responsividade
+- [ ] (Ajuste) Colocar verificação ára quando o token de sessão expirar
+- [ ] (Ajuste) Paginação com números de página erradas quando tem algo no campo de pesquisa
+
