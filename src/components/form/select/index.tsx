@@ -40,6 +40,7 @@ const Select = <T extends FieldValues>({
       rules={rules}
       render={({ field, fieldState: { error } }) => (
         <SelectUI
+          key={field.value}
           classNames={classNames}
           size="sm"
           label={t(label)}
