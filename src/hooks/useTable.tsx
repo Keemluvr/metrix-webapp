@@ -20,6 +20,7 @@ type useTableValues = {
   sortDescriptor: SortDescriptor;
   page: number;
   rowsPerPage: number;
+  pageLength: number;
 };
 
 type useTableReturn<T> = [T[], useTableActions, useTableValues];
@@ -27,6 +28,7 @@ type useTableReturn<T> = [T[], useTableActions, useTableValues];
 function useTable<T>({ data, search, sort }: useTableProps<T>): useTableReturn<T> {
   const [rowsPerPage] = useState<number>(5);
   const [page, setPage] = useState<number>(1);
+  const [pageLength, setPageLength] = useState<number>(0);
   const [filterValue, setFilterValue] = useState<string>("");
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>(
     sort || { column: "name", direction: "ascending" }
@@ -50,6 +52,10 @@ function useTable<T>({ data, search, sort }: useTableProps<T>): useTableReturn<T
   const items: T[] = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
+
+    if (filteredItems.length) {
+      setPageLength(Math.ceil(filteredItems.length / rowsPerPage));
+    }
     return filteredItems.slice(start, end);
   }, [page, filteredItems, rowsPerPage]);
 
@@ -68,7 +74,8 @@ function useTable<T>({ data, search, sort }: useTableProps<T>): useTableReturn<T
     filterValue,
     sortDescriptor,
     page,
-    rowsPerPage
+    rowsPerPage,
+    pageLength
   };
 
   return [sortedItems, actions, values];

@@ -3,5 +3,6 @@ export const className = {
   modalWrapper: "absolute top-0",
   modal: {
     wrapper: "absolute overflow-y-scroll top-0 w-full"
-  }
+  },
+  bottomContentWrapper: "flex w-full justify-center"
 };

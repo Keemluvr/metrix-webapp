@@ -101,6 +101,8 @@
     "name": "Nome",
     "email": "Email",
     "gender": "Sexo",
+    "cpf": "CPF",
+    "rg": "RG",
     "not-set": "Não definido",
     "actions": "Ações"
   },

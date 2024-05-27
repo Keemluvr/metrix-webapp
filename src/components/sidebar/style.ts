@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 export const className = {
-  wrapper: "bg-default flex flex-col items-center gap-3 sticky h-screen top-0 left-0 w-20 py-6",
+  wrapper: "bg-default flex flex-col items-center gap-3 sticky h-screen top-0 left-0 w-20 py-6 z-50",
   main: "h-full flex flex-col items-center gap-3",
   item: clsx(
     "w-14 h-14 font-extralight text-base sm:text-lg rounded-xl",

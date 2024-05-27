@@ -21,11 +21,13 @@ const List = () => {
 
   const [sortedItems, tableActions, values] = useTable({ data });
   const { setSortDescriptor, setFilterValue, setPage } = tableActions;
-  const { sortDescriptor, filterValue, page, rowsPerPage } = values;
+  const { sortDescriptor, filterValue, page, rowsPerPage, pageLength } = values;
 
   const columns = [
     { name: "name", uid: "name", sortable: true },
     { name: "email", uid: "email" },
+    { name: "cpf", uid: "cpf" },
+    { name: "rg", uid: "rg" },
     { name: "gender", uid: "gender" },
     { name: "actions", uid: "actions" }
   ];
@@ -60,24 +62,23 @@ const List = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortedItems, filterValue, setFilterValue, setPage, onClose, onOpen, refetch]);
 
-  const bottomContent: JSX.Element = useMemo(() => {
-    const pages = Math.ceil(data.length / rowsPerPage);
-
-    return (
-      <div className="flex w-full justify-center">
-        <Pagination
-          key={data.length}
-          isCompact
-          showControls
-          color="primary"
-          page={page}
-          total={pages}
-          onChange={(page) => setPage(page)}
-        />
-      </div>
-    );
+  const bottomContent: JSX.Element | null = useMemo(
+    () =>
+      pageLength ? (
+        <div className={className.bottomContentWrapper}>
+          <Pagination
+            isCompact
+            showControls
+            color="primary"
+            total={pageLength}
+            page={page}
+            onChange={(page) => setPage(page)}
+          />
+        </div>
+      ) : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, rowsPerPage, data.length]);
+    [page, rowsPerPage, pageLength]
+  );
 
   return (
     <div className={className.wrapper}>

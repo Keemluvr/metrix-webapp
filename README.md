@@ -97,7 +97,8 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 - Contém os arquivos estáticos da aplicação, como ícones e imagens.
 
 #### `/src`
--  **`__tests__`**: Contém os tests unitários dos components.
+
+- **`__tests__`**: Contém os tests unitários dos components.
 
 - **`app`**: Contém o componente principal da aplicação, onde fica estruturado as páginas e rotas da API e sua inicialização.
 
@@ -132,7 +133,6 @@ A aplicação segue uma estrutura de código organizada e modular, facilitando a
 ### Outros Arquivos
 
 - **`cypress.config.ts`**: Arquivo de configuração do Cypress.
-  
 - **`jest.config.ts`**: Arquivo de configuração do Jest.
 
 - **`next.config.ts`**: Arquivo de configuração do Next.js.
@@ -146,6 +146,5 @@ Esta estrutura organiza o código de forma modular e separa claramente as respon
 - [ ] (Melhoria) Acessibilidade
 - [ ] (Ajuste) Deslogar o usuário caso ele exclua a própria conta
 - [ ] (Ajuste) Responsividade
-- [ ] (Ajuste) Colocar verificação ára quando o token de sessão expirar
-- [ ] (Ajuste) Paginação com números de página erradas quando tem algo no campo de pesquisa
-
+- [ ] (Ajuste) Colocar verificação para quando o token de sessão expirar
+- [x] (Ajuste) Paginação com números de página erradas quando tem algo no campo de pesquisa

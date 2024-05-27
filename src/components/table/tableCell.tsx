@@ -7,6 +7,7 @@ import { GenderEnum } from "@/types/Gender";
 import { Actions } from "./types";
 import TableActions from "./tableActions";
 import GenderChip from "../genderChip";
+import { formatCPF } from "@/helpers/formatString";
 
 type TableCellProps<T extends Record<string, unknown>> = {
   item: T;
@@ -20,6 +21,8 @@ const TableCell = <T extends Record<string, unknown>>({ item, columnKey, actions
   switch (columnKey) {
     case "gender":
       return <GenderChip gender={(cellValue as GenderEnum) || "not-set"} />;
+    case "cpf":
+      return <Copyable label={formatCPF(cellValue as string)} />;
     case "email":
       return (
         <Copyable
