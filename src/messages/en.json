@@ -118,7 +118,8 @@
     "is-iso8601": "{field} should be a valid date format",
     "internal-server-error": "Internal server error. Try again later.",
     "already-exist-property-for-another-user": "Already exist this email, CPF or RG for another user",
-    "unauthorized": "Unauthorized"
+    "unauthorized": "Unauthorized",
+    "credentials-signin": "Invalid credentials. Please try again."
   },
   "Entity": {
     "user": "User",

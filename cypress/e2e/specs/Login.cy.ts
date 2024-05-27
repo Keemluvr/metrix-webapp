@@ -45,7 +45,7 @@ describe(`[${environment}] Login page test`, () => {
     cy.get(loginPage.getEmailInput).should("have.attr", "aria-invalid", "true");
     cy.get(loginPage.getPasswordInput).should("have.attr", "aria-invalid", "true");
 
-    cy.checkToastMessage("Invalid credentials, please try again");
+    cy.checkToastMessage("Invalid credentials. Please try again.");
   });
 
   it("Validate empty fields", () => {
